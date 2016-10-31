@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created  on 20.10.16.
+ * @version 1.1 (rolled back on JDK 1.6)
  */
 /*
 * Given an array of strings, return a new List (e.g. an ArrayList) where all the strings of the given length are
@@ -13,7 +14,7 @@ import java.util.List;
 public class WordsWithoutList {
 
     public List wordsWithoutList(String[] words, int len) {
-        List<String> result = new ArrayList<>();
+        List<String> result = new ArrayList<String>();
         for (String word : words) {
             if (word.length() != len) {
                 result.add(word);
