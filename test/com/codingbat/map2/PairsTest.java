@@ -42,9 +42,12 @@ public class PairsTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {new String []{"code", "bug"},                  parseMapString("\"b\": \"g\", \"c\": \"e\"")},
-                {new String []{"man", "moon", "main"},          parseMapString("\"m\": \"n\"")},
-                {new String []{"man", "moon", "good", "night"}, parseMapString("\"g\": \"d\", \"n\": \"t\", \"m\": \"n\"")}
+                {new String []{"code", "bug"},                  parseMap("\"b\": \"g\", \"c\": \"e\"",
+                                                                            TestMapHelper::splitKVString)},
+                {new String []{"man", "moon", "main"},          parseMap("\"m\": \"n\"",
+                                                                            TestMapHelper::splitKVString)},
+                {new String []{"man", "moon", "good", "night"}, parseMap("\"g\": \"d\", \"n\": \"t\", \"m\": \"n\"",
+                                                                            TestMapHelper::splitKVString)}
         });
     }
 

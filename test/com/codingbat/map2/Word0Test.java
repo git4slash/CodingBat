@@ -43,9 +43,12 @@ public class Word0Test {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {new String[]{"a", "b", "a", "b"},      parseMapInteger("\"b\": 0, \"a\": 0")},
-                {new String[]{"a", "b", "a", "c", "b"}, parseMapInteger("\"b\": 0, \"c\": 0, \"a\": 0")},
-                {new String[]{"c", "b", "a"},           parseMapInteger("\"b\": 0, \"c\": 0, \"a\": 0")}
+                {new String[]{"a", "b", "a", "b"},      parseMap("\"b\": 0, \"a\": 0",
+                                                                TestMapHelper::splitKVInt)},
+                {new String[]{"a", "b", "a", "c", "b"}, parseMap("\"b\": 0, \"c\": 0, \"a\": 0",
+                                                                TestMapHelper::splitKVInt)},
+                {new String[]{"c", "b", "a"},           parseMap("\"b\": 0, \"c\": 0, \"a\": 0",
+                                                                TestMapHelper::splitKVInt)}
         });
     }
 
