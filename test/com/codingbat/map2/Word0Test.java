@@ -1,6 +1,5 @@
 package com.codingbat.map2;
 
-import com.codingbat.TestMapHelper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 
-import static com.codingbat.TestMapHelper.*;
+import static com.codingbat.Helpers.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -44,16 +43,20 @@ public class Word0Test {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {new String[]{"a", "b", "a", "b"},      parseMap("\"b\": 0, \"a\": 0",
-                                                                TestMapHelper::splitKVInt)},
+                                                                Integer::parseInt)},
                 {new String[]{"a", "b", "a", "c", "b"}, parseMap("\"b\": 0, \"c\": 0, \"a\": 0",
-                                                                TestMapHelper::splitKVInt)},
+                                                                Integer::parseInt)},
                 {new String[]{"c", "b", "a"},           parseMap("\"b\": 0, \"c\": 0, \"a\": 0",
-                                                                TestMapHelper::splitKVInt)}
+                                                                Integer::parseInt)}
         });
     }
 
     @Test
     public void word0() throws Exception {
         assertThat(testObj.word0(strings), is(expectedValue));
+    }
+    @Test
+    public void word08() throws Exception {
+        assertThat(testObj.word08(strings), is(expectedValue));
     }
 }
